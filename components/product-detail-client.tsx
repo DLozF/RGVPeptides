@@ -11,8 +11,12 @@ import {
   Thermometer,
   Calendar,
   CheckCircle2,
-  ExternalLink
+  ExternalLink,
+  Minus,
+  Plus,
+  ShoppingCart
 } from "lucide-react"
+import { useCart } from "@/contexts/cart-context"
 import type { Product } from "@/lib/products"
 
 interface ProductDetailClientProps {
@@ -21,6 +25,25 @@ interface ProductDetailClientProps {
 
 export default function ProductDetailClient({ product }: ProductDetailClientProps) {
   const [selectedTab, setSelectedTab] = useState<"overview" | "specs" | "applications">("overview")
+  const [quantity, setQuantity] = useState(1)
+  const [isAdding, setIsAdding] = useState(false)
+  const { addToCart } = useCart()
+
+  const handleAddToCart = () => {
+    setIsAdding(true)
+    addToCart(product, quantity)
+    setTimeout(() => {
+      setIsAdding(false)
+    }, 500)
+  }
+
+  const incrementQuantity = () => {
+    if (quantity < 99) setQuantity(quantity + 1)
+  }
+
+  const decrementQuantity = () => {
+    if (quantity > 1) setQuantity(quantity - 1)
+  }
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-12">

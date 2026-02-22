@@ -1,7 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ShoppingCart } from "lucide-react"
+import { useCart } from "@/contexts/cart-context"
 
 const navLinks = [
   { label: "Research Catalog", href: "#catalog" },
@@ -13,6 +14,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { getTotalItems, setIsCartOpen } = useCart()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -50,6 +52,18 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          <button
+            onClick={() => setIsCartOpen(true)}
+            className="relative rounded-lg p-2 text-alabaster/70 transition-colors hover:text-alabaster"
+            aria-label="Open cart"
+          >
+            <ShoppingCart className="h-5 w-5" />
+            {getTotalItems() > 0 && (
+              <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-crimson text-[10px] font-bold text-alabaster">
+                {getTotalItems()}
+              </span>
+            )}
+          </button>
           <a
             href="#login"
             className="rounded-lg border border-crimson/30 bg-crimson/10 px-5 py-2 text-sm font-semibold text-crimson transition-all hover:bg-crimson hover:text-alabaster"
@@ -58,14 +72,28 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="text-alabaster md:hidden"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-        >
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        {/* Mobile Actions */}
+        <div className="flex items-center gap-3 md:hidden">
+          <button
+            onClick={() => setIsCartOpen(true)}
+            className="relative rounded-lg p-2 text-alabaster"
+            aria-label="Open cart"
+          >
+            <ShoppingCart className="h-5 w-5" />
+            {getTotalItems() > 0 && (
+              <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-crimson text-[10px] font-bold text-alabaster">
+                {getTotalItems()}
+              </span>
+            )}
+          </button>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="text-alabaster"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu */}

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Space_Grotesk } from 'next/font/google'
+import { CartProvider } from '@/contexts/cart-context'
+import CartSidebar from '@/components/cart-sidebar'
 import './globals.css'
 
 const _inter = Inter({ subsets: ['latin'] })
@@ -19,7 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans antialiased">
-        {children}
+        <CartProvider>
+          {children}
+          <CartSidebar />
+        </CartProvider>
       </body>
     </html>
   )
