@@ -10,6 +10,7 @@ const products = [
     weight: "1503.74 g/mol",
     purity: "99.8%",
     description: "A 15-amino acid peptide fragment derived from human gastric juice protein for laboratory research.",
+    image: "/images/products/bpc-157.jpeg",
   },
   {
     name: "TB-500",
@@ -17,6 +18,7 @@ const products = [
     weight: "4963.50 g/mol",
     purity: "99.7%",
     description: "Synthetic peptide segment of the naturally occurring thymosin beta-4 protein for in-vitro studies.",
+    image: "/images/products/tb-500.jpeg",
   },
   {
     name: "Retatrutide",
@@ -24,6 +26,7 @@ const products = [
     weight: "5145.74 g/mol",
     purity: "99.8%",
     description: "A synthetic peptide that targets GIP, GLP-1, and glucagon receptors for investigative metabolic research.",
+    image: "/images/products/retatrutide.jpeg",
   },
   {
     name: "CJC-1295",
@@ -31,6 +34,7 @@ const products = [
     weight: "3367.97 g/mol",
     purity: "99.8%",
     description: "Tetrasubstituted peptide analog of growth hormone-releasing hormone for pharmacokinetic research.",
+    image: "/images/products/cjc-1295.jpeg",
   },
   {
     name: "Ipamorelin",
@@ -38,6 +42,7 @@ const products = [
     weight: "711.85 g/mol",
     purity: "99.9%",
     description: "Selective pentapeptide ghrelin receptor agonist for growth hormone secretion pathway studies.",
+    image: "/images/products/ipamorelin.png",
   },
   {
     name: "Tirzepatide",
@@ -45,6 +50,7 @@ const products = [
     weight: "4813.53 g/mol",
     purity: "99.9%",
     description: "A 39-amino acid synthetic peptide for research into synergistic incretin hormone receptor binding.",
+    image: "/images/products/tirzepatide.jpeg",
   },
 ]
 
@@ -91,38 +97,51 @@ export default function ProductGrid() {
           {products.map((product, index) => (
             <div
               key={product.name}
-              className="reveal group relative overflow-hidden rounded-xl border border-navy-mid bg-navy-light/30 p-6 backdrop-blur-sm transition-all duration-300 hover:border-chart-1/30 hover:bg-navy-light/60"
+              className="reveal group relative overflow-hidden rounded-xl border border-navy-mid bg-navy-light/30 backdrop-blur-sm transition-all duration-300 hover:border-chart-1/30 hover:bg-navy-light/60"
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              {/* Purity Badge */}
-              <div className="mb-4 flex items-center justify-between">
+              {/* Product Image */}
+              <div className="relative aspect-square overflow-hidden rounded-t-xl bg-alabaster/5">
+                <img
+                  src={product.image}
+                  alt={`${product.name} - Research peptide vial`}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* Purity Badge Overlay */}
+                <div className="absolute right-3 top-3">
+                  <span className="inline-flex items-center gap-1 rounded-full border border-chart-1/30 bg-navy/80 px-2.5 py-1 text-xs font-semibold text-chart-1 backdrop-blur-sm">
+                    <ShieldCheck className="h-3 w-3" />
+                    {product.purity}
+                  </span>
+                </div>
+              </div>
+
+              {/* Product Details */}
+              <div className="p-6">
+                {/* Category */}
                 <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                   {product.category}
                 </span>
-                <span className="inline-flex items-center gap-1 rounded-full border border-chart-1/30 bg-chart-1/10 px-2.5 py-0.5 text-xs font-semibold text-chart-1">
-                  <ShieldCheck className="h-3 w-3" />
-                  Purity: {product.purity}
-                </span>
-              </div>
 
-              {/* Product Name */}
-              <h3 className="font-serif text-xl font-bold text-alabaster">{product.name}</h3>
-              <p className="mt-1 text-xs text-muted-foreground">MW: {product.weight}</p>
+                {/* Product Name */}
+                <h3 className="mt-2 font-serif text-xl font-bold text-alabaster">{product.name}</h3>
+                <p className="mt-1 text-xs text-muted-foreground">MW: {product.weight}</p>
 
-              {/* Description */}
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {product.description}
-              </p>
+                {/* Description */}
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {product.description}
+                </p>
 
-              {/* Actions */}
-              <div className="mt-6 flex items-center gap-3">
-                <button className="animate-pulse-crimson flex-1 rounded-lg bg-crimson px-4 py-2.5 text-xs font-semibold text-alabaster transition-colors hover:bg-crimson-dark">
-                  Add to Inquiry
-                </button>
-                <button className="inline-flex items-center gap-1.5 rounded-lg border border-navy-mid px-3 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:border-alabaster/30 hover:text-alabaster">
-                  <FileDown className="h-3.5 w-3.5" />
-                  COA
-                </button>
+                {/* Actions */}
+                <div className="mt-6 flex items-center gap-3">
+                  <button className="animate-pulse-crimson flex-1 rounded-lg bg-crimson px-4 py-2.5 text-xs font-semibold text-alabaster transition-colors hover:bg-crimson-dark">
+                    Add to Inquiry
+                  </button>
+                  <button className="inline-flex items-center gap-1.5 rounded-lg border border-navy-mid px-3 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:border-alabaster/30 hover:text-alabaster">
+                    <FileDown className="h-3.5 w-3.5" />
+                    COA
+                  </button>
+                </div>
               </div>
 
               {/* Hover accent line */}
