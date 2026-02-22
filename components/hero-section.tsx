@@ -1,77 +1,9 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-
-function MolecularVisualization() {
-  return (
-    <div className="relative flex h-80 w-80 items-center justify-center lg:h-96 lg:w-96">
-      {/* Central glow */}
-      <div className="absolute h-40 w-40 rounded-full bg-chart-1/20 blur-3xl" />
-
-      {/* Outer ring */}
-      <div className="absolute h-64 w-64 rounded-full border border-chart-1/10 lg:h-72 lg:w-72" />
-      <div className="absolute h-48 w-48 rounded-full border border-chart-1/20 lg:h-56 lg:w-56" />
-      <div className="absolute h-32 w-32 rounded-full border border-chart-1/20" />
-
-      {/* Central molecule */}
-      <div className="relative animate-float">
-        {/* Core atom */}
-        <div className="h-10 w-10 rounded-full bg-chart-1 shadow-[0_0_30px_rgba(59,130,246,0.6)]" />
-
-        {/* Bond lines and atoms */}
-        <div className="absolute -top-12 left-1/2 -translate-x-1/2">
-          <div className="mx-auto h-8 w-px bg-chart-1/40" />
-          <div className="h-5 w-5 rounded-full bg-crimson shadow-[0_0_15px_rgba(225,29,72,0.5)]" />
-        </div>
-
-        <div className="absolute -bottom-12 left-1/2 -translate-x-1/2">
-          <div className="h-5 w-5 rounded-full bg-crimson shadow-[0_0_15px_rgba(225,29,72,0.5)]" />
-          <div className="mx-auto h-8 w-px bg-chart-1/40" />
-        </div>
-
-        <div className="absolute -left-14 top-1/2 flex -translate-y-1/2 items-center">
-          <div className="h-5 w-5 rounded-full bg-alabaster/80 shadow-[0_0_15px_rgba(248,250,252,0.3)]" />
-          <div className="h-px w-8 bg-chart-1/40" />
-        </div>
-
-        <div className="absolute -right-14 top-1/2 flex -translate-y-1/2 items-center">
-          <div className="h-px w-8 bg-chart-1/40" />
-          <div className="h-5 w-5 rounded-full bg-alabaster/80 shadow-[0_0_15px_rgba(248,250,252,0.3)]" />
-        </div>
-
-        {/* Diagonal bonds */}
-        <div className="absolute -right-10 -top-10">
-          <div className="h-4 w-4 rounded-full bg-chart-1/60 shadow-[0_0_10px_rgba(59,130,246,0.4)]" />
-        </div>
-        <div className="absolute -bottom-10 -left-10">
-          <div className="h-4 w-4 rounded-full bg-chart-1/60 shadow-[0_0_10px_rgba(59,130,246,0.4)]" />
-        </div>
-      </div>
-
-      {/* Orbiting particles */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="animate-orbit">
-          <div className="h-3 w-3 rounded-full bg-crimson/70 shadow-[0_0_8px_rgba(225,29,72,0.5)]" />
-        </div>
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="animate-orbit-reverse">
-          <div className="h-2 w-2 rounded-full bg-chart-1/70 shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
-        </div>
-      </div>
-
-      {/* Floating small particles */}
-      <div className="absolute left-8 top-8 h-1.5 w-1.5 animate-pulse rounded-full bg-chart-1/40" />
-      <div className="absolute bottom-12 right-12 h-2 w-2 animate-pulse rounded-full bg-crimson/30" style={{ animationDelay: "1s" }} />
-      <div className="absolute bottom-8 left-16 h-1 w-1 animate-pulse rounded-full bg-alabaster/20" style={{ animationDelay: "2s" }} />
-      <div className="absolute right-8 top-20 h-1.5 w-1.5 animate-pulse rounded-full bg-chart-1/30" style={{ animationDelay: "0.5s" }} />
-    </div>
-  )
-}
+import { useEffect, useState } from "react"
 
 export default function HeroSection() {
   const [showTypewriter, setShowTypewriter] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const timer = setTimeout(() => setShowTypewriter(true), 500)
@@ -79,7 +11,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative flex min-h-screen items-center overflow-hidden pt-20">
+    <section className="relative flex min-h-screen items-center overflow-hidden pt-20">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-12 px-6 py-20 lg:flex-row lg:justify-between lg:gap-8">
         {/* Left: Text */}
         <div className="flex max-w-xl flex-col items-center text-center lg:items-start lg:text-left">
@@ -120,9 +52,41 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right: Molecular Visualization */}
-        <div className="flex items-center justify-center">
-          <MolecularVisualization />
+        {/* Right: Logo with glow effect */}
+        <div className="relative flex items-center justify-center">
+          {/* Outer glow rings */}
+          <div className="absolute h-80 w-80 rounded-full border border-chart-1/10 lg:h-96 lg:w-96" />
+          <div className="absolute h-64 w-64 rounded-full border border-crimson/10 lg:h-80 lg:w-80" />
+
+          {/* Animated glow behind logo */}
+          <div className="absolute h-56 w-56 rounded-full bg-chart-1/10 blur-3xl lg:h-64 lg:w-64" />
+          <div className="absolute h-40 w-40 rounded-full bg-crimson/8 blur-2xl lg:h-48 lg:w-48" />
+
+          {/* Logo */}
+          <div className="animate-float relative">
+            <img
+              src="/images/logo.jpeg"
+              alt="RGVPeptides - Texas peptide research company"
+              className="h-56 w-56 rounded-full shadow-[0_0_60px_rgba(59,130,246,0.3)] lg:h-72 lg:w-72"
+            />
+          </div>
+
+          {/* Orbiting particles */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="animate-orbit">
+              <div className="h-3 w-3 rounded-full bg-crimson/70 shadow-[0_0_8px_rgba(225,29,72,0.5)]" />
+            </div>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="animate-orbit-reverse">
+              <div className="h-2 w-2 rounded-full bg-chart-1/70 shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
+            </div>
+          </div>
+
+          {/* Floating small particles */}
+          <div className="absolute left-4 top-8 h-1.5 w-1.5 animate-pulse rounded-full bg-chart-1/40" />
+          <div className="absolute bottom-12 right-8 h-2 w-2 animate-pulse rounded-full bg-crimson/30" style={{ animationDelay: "1s" }} />
+          <div className="absolute bottom-8 left-16 h-1 w-1 animate-pulse rounded-full bg-alabaster/20" style={{ animationDelay: "2s" }} />
         </div>
       </div>
 

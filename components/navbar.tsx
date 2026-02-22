@@ -29,8 +29,15 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#" className="font-serif text-xl font-bold tracking-tight text-alabaster">
-          RGV<span className="text-crimson">Peptides</span>
+        <a href="#" className="flex items-center gap-2">
+          <img
+            src="/images/logo.jpeg"
+            alt="RGVPeptides logo"
+            className="h-10 w-10 rounded-full"
+          />
+          <span className="font-serif text-xl font-bold tracking-tight text-alabaster">
+            RGV<span className="text-crimson">Peptides</span>
+          </span>
         </a>
 
         {/* Desktop Nav */}

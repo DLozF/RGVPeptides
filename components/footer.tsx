@@ -13,10 +13,19 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-1">
-            <p className="font-serif text-xl font-bold text-alabaster">
-              RGV<span className="text-crimson">Peptides</span>
-            </p>
-            <p className="mt-1 font-mono text-xs text-muted-foreground">Ascending the Valley</p>
+            <div className="flex items-center gap-3">
+              <img
+                src="/images/logo.jpeg"
+                alt="RGVPeptides logo"
+                className="h-12 w-12 rounded-full"
+              />
+              <div>
+                <p className="font-serif text-xl font-bold text-alabaster">
+                  RGV<span className="text-crimson">Peptides</span>
+                </p>
+                <p className="font-mono text-xs text-muted-foreground">Ascending the Valley</p>
+              </div>
+            </div>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               Premium peptide research compounds for the scientific community.
             </p>

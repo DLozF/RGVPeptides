@@ -127,25 +127,4 @@
   animation: orbit-reverse 12s linear infinite;
 }
 
-/* Topographic background pattern */
-.topo-bg {
-  position: relative;
-}
 
-.topo-bg::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.04;
-  background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(248, 250, 252, 0.3) 39px, rgba(248, 250, 252, 0.3) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(248, 250, 252, 0.15) 39px, rgba(248, 250, 252, 0.15) 40px);
-  background-size: 40px 40px;
-}
-
-.topo-bg > * {
-  position: relative;
-  z-index: 1;
-}
