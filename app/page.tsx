@@ -5,6 +5,7 @@ import TrustBar from "@/components/trust-bar"
 import Footer from "@/components/footer"
 
 export default function Home() {
+  console.log("[v0] Home page rendering on server")
   return (
     <div className="topo-bg min-h-screen bg-background">
       <Navbar />
