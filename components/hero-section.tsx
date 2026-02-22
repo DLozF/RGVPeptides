@@ -33,7 +33,7 @@ export default function HeroSection() {
           </div>
 
           <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
-            Premium peptide research compounds synthesized in the USA with {">"}99% purity. Trusted by laboratories nationwide for cutting-edge research.
+            Specializing in high-purity <span className="text-alabaster font-semibold">Retatrutide</span> and <span className="text-alabaster font-semibold">Tirzepatide</span> research compounds. Synthesized in the USA with {">"}99% purity for precise laboratory investigation.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">

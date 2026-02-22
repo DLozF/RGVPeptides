@@ -19,11 +19,11 @@ const products = [
     description: "Synthetic peptide segment of the naturally occurring thymosin beta-4 protein for in-vitro studies.",
   },
   {
-    name: "PT-141",
-    category: "Melanocortin Agonist",
-    weight: "1025.21 g/mol",
-    purity: "99.9%",
-    description: "Synthetic peptide analog of alpha-melanocyte-stimulating hormone for receptor binding research.",
+    name: "Retatrutide",
+    category: "Triple Hormone Receptor Agonist",
+    weight: "5145.74 g/mol",
+    purity: "99.8%",
+    description: "A synthetic peptide that targets GIP, GLP-1, and glucagon receptors for investigative metabolic research.",
   },
   {
     name: "CJC-1295",
@@ -40,11 +40,11 @@ const products = [
     description: "Selective pentapeptide ghrelin receptor agonist for growth hormone secretion pathway studies.",
   },
   {
-    name: "Selank",
-    category: "Heptapeptide",
-    weight: "751.87 g/mol",
-    purity: "99.7%",
-    description: "Synthetic analog of the immunomodulatory peptide tuftsin for anxiolytic mechanism research.",
+    name: "Tirzepatide",
+    category: "Dual GIP/GLP-1 Agonist",
+    weight: "4813.53 g/mol",
+    purity: "99.9%",
+    description: "A 39-amino acid synthetic peptide for research into synergistic incretin hormone receptor binding.",
   },
 ]
 
