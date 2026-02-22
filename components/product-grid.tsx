@@ -1,64 +1,9 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import Link from "next/link"
 import { ShieldCheck, FileDown, FlaskConical } from "lucide-react"
-
-const products = [
-  {
-    name: "BPC-157",
-    category: "Pentadecapeptide",
-    weight: "1503.74 g/mol",
-    purity: "99.8%",
-    description: "A 15-amino acid peptide fragment derived from human gastric juice protein for laboratory research.",
-    image: "/images/products/bpc-157.jpeg",
-    coa: "/images/coa/bpc-157-coa.png",
-  },
-  {
-    name: "TB-500",
-    category: "Thymosin Beta-4 Fragment",
-    weight: "4963.50 g/mol",
-    purity: "99.7%",
-    description: "Synthetic peptide segment of the naturally occurring thymosin beta-4 protein for in-vitro studies.",
-    image: "/images/products/tb-500.jpeg",
-    coa: null,
-  },
-  {
-    name: "Retatrutide",
-    category: "Triple Hormone Receptor Agonist",
-    weight: "5145.74 g/mol",
-    purity: "99.8%",
-    description: "A synthetic peptide that targets GIP, GLP-1, and glucagon receptors for investigative metabolic research.",
-    image: "/images/products/retatrutide.jpeg",
-    coa: "/images/coa/retatrutide-coa.png",
-  },
-  {
-    name: "CJC-1295",
-    category: "GHRH Analog",
-    weight: "3367.97 g/mol",
-    purity: "99.8%",
-    description: "Tetrasubstituted peptide analog of growth hormone-releasing hormone for pharmacokinetic research.",
-    image: "/images/products/cjc-1295.jpeg",
-    coa: null,
-  },
-  {
-    name: "Ipamorelin",
-    category: "Growth Hormone Secretagogue",
-    weight: "711.85 g/mol",
-    purity: "99.9%",
-    description: "Selective pentapeptide ghrelin receptor agonist for growth hormone secretion pathway studies.",
-    image: "/images/products/ipamorelin.png",
-    coa: "/images/coa/ipamorelin-coa.png",
-  },
-  {
-    name: "Tirzepatide",
-    category: "Dual GIP/GLP-1 Agonist",
-    weight: "4813.53 g/mol",
-    purity: "99.9%",
-    description: "A 39-amino acid synthetic peptide for research into synergistic incretin hormone receptor binding.",
-    image: "/images/products/tirzepatide.jpeg",
-    coa: "/images/coa/tirzepatide-coa.png",
-  },
-]
+import { products } from "@/lib/products"
 
 export default function ProductGrid() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -101,10 +46,11 @@ export default function ProductGrid() {
         {/* Product Grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((product, index) => (
-            <div
+            <Link
               key={product.name}
+              href={`/products/${product.slug}`}
               className="reveal group relative overflow-hidden rounded-xl border border-navy-mid bg-navy-light/30 backdrop-blur-sm transition-all duration-300 hover:border-chart-1/30 hover:bg-navy-light/60"
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${index * 100}ms` } as React.CSSProperties}
             >
               {/* Product Image */}
               <div className="relative aspect-square overflow-hidden rounded-t-xl bg-alabaster/5">
@@ -167,7 +113,7 @@ export default function ProductGrid() {
 
               {/* Hover accent line */}
               <div className="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-crimson transition-transform duration-300 group-hover:scale-x-100" />
-            </div>
+            </Link>
           ))}
         </div>
       </div>
