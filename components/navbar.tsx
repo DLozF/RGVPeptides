@@ -23,17 +23,20 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-navy/80 backdrop-blur-xl border-b border-navy-mid/50 shadow-lg"
-          : "bg-transparent backdrop-blur-sm"
+        ? "bg-[#0a192f]/90 backdrop-blur-md border-b border-navy-mid/50 shadow-lg"
+        : "bg-[#0a192f]/70 backdrop-blur-md"
         }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#" className="flex items-center gap-2">
-          <img
-            src="/images/logo.png"
-            alt="RGVPeptides logo"
-            className="h-10 w-10 rounded-full"
-          />
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+        <a href="#" className="flex items-center gap-4">
+          <div className="relative">
+            <div className="absolute -inset-2 rounded-full bg-chart-1/15 blur-md" />
+            <img
+              src="/images/logo.png"
+              alt="RGVPeptides logo"
+              className="relative h-16 w-auto object-contain"
+            />
+          </div>
           <span className="font-serif text-xl font-bold tracking-tight text-alabaster">
             RGV<span className="text-crimson">Peptides</span>
           </span>

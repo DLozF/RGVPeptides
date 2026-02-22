@@ -13,11 +13,11 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <img
                 src="/images/logo.png"
                 alt="RGVPeptides logo"
-                className="h-12 w-12 rounded-full"
+                className="h-20 w-auto object-contain"
               />
               <div>
                 <p className="font-serif text-xl font-bold text-alabaster">
