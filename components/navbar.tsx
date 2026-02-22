@@ -30,7 +30,6 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
         <a href="#" className="flex items-center gap-4">
           <div className="relative">
-            <div className="absolute -inset-2 rounded-full bg-chart-1/15 blur-md" />
             <img
               src="/images/logo.png"
               alt="RGVPeptides logo"
