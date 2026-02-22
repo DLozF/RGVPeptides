@@ -10,7 +10,7 @@ function MolecularVisualization() {
 
       {/* Outer ring */}
       <div className="absolute h-64 w-64 rounded-full border border-chart-1/10 lg:h-72 lg:w-72" />
-      <div className="absolute h-48 w-48 rounded-full border border-chart-1/15 lg:h-56 lg:w-56" />
+      <div className="absolute h-48 w-48 rounded-full border border-chart-1/20 lg:h-56 lg:w-56" />
       <div className="absolute h-32 w-32 rounded-full border border-chart-1/20" />
 
       {/* Central molecule */}
