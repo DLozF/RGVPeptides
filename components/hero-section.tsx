@@ -52,41 +52,16 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right: Logo with glow effect */}
+        {/* Right: Logo */}
         <div className="relative flex items-center justify-center">
-          {/* Outer glow rings */}
-          <div className="absolute h-80 w-80 rounded-full border border-chart-1/10 lg:h-96 lg:w-96" />
-          <div className="absolute h-64 w-64 rounded-full border border-crimson/10 lg:h-80 lg:w-80" />
-
-          {/* Animated glow behind logo */}
-          <div className="absolute h-56 w-56 rounded-full bg-chart-1/10 blur-3xl lg:h-64 lg:w-64" />
-          <div className="absolute h-40 w-40 rounded-full bg-crimson/8 blur-2xl lg:h-48 lg:w-48" />
-
           {/* Logo */}
-          <div className="animate-float relative">
+          <div className="animate-float">
             <img
               src="/images/logo.png"
               alt="RGVPeptides - Texas peptide research company"
-              className="h-64 w-auto object-contain drop-shadow-[0_0_40px_rgba(59,130,246,0.3)] lg:h-80"
+              className="h-64 w-auto object-contain lg:h-80"
             />
           </div>
-
-          {/* Orbiting particles */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="animate-orbit">
-              <div className="h-3 w-3 rounded-full bg-crimson/70 shadow-[0_0_8px_rgba(225,29,72,0.5)]" />
-            </div>
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="animate-orbit-reverse">
-              <div className="h-2 w-2 rounded-full bg-chart-1/70 shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
-            </div>
-          </div>
-
-          {/* Floating small particles */}
-          <div className="absolute left-4 top-8 h-1.5 w-1.5 animate-pulse rounded-full bg-chart-1/40" />
-          <div className="absolute bottom-12 right-8 h-2 w-2 animate-pulse rounded-full bg-crimson/30" style={{ animationDelay: "1s" }} />
-          <div className="absolute bottom-8 left-16 h-1 w-1 animate-pulse rounded-full bg-alabaster/20" style={{ animationDelay: "2s" }} />
         </div>
       </div>
 
