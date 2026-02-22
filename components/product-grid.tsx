@@ -11,6 +11,7 @@ const products = [
     purity: "99.8%",
     description: "A 15-amino acid peptide fragment derived from human gastric juice protein for laboratory research.",
     image: "/images/products/bpc-157.jpeg",
+    coa: "/images/coa/bpc-157-coa.png",
   },
   {
     name: "TB-500",
@@ -19,6 +20,7 @@ const products = [
     purity: "99.7%",
     description: "Synthetic peptide segment of the naturally occurring thymosin beta-4 protein for in-vitro studies.",
     image: "/images/products/tb-500.jpeg",
+    coa: null,
   },
   {
     name: "Retatrutide",
@@ -27,6 +29,7 @@ const products = [
     purity: "99.8%",
     description: "A synthetic peptide that targets GIP, GLP-1, and glucagon receptors for investigative metabolic research.",
     image: "/images/products/retatrutide.jpeg",
+    coa: "/images/coa/retatrutide-coa.png",
   },
   {
     name: "CJC-1295",
@@ -35,6 +38,7 @@ const products = [
     purity: "99.8%",
     description: "Tetrasubstituted peptide analog of growth hormone-releasing hormone for pharmacokinetic research.",
     image: "/images/products/cjc-1295.jpeg",
+    coa: null,
   },
   {
     name: "Ipamorelin",
@@ -43,6 +47,7 @@ const products = [
     purity: "99.9%",
     description: "Selective pentapeptide ghrelin receptor agonist for growth hormone secretion pathway studies.",
     image: "/images/products/ipamorelin.png",
+    coa: "/images/coa/ipamorelin-coa.png",
   },
   {
     name: "Tirzepatide",
@@ -51,6 +56,7 @@ const products = [
     purity: "99.9%",
     description: "A 39-amino acid synthetic peptide for research into synergistic incretin hormone receptor binding.",
     image: "/images/products/tirzepatide.jpeg",
+    coa: "/images/coa/tirzepatide-coa.png",
   },
 ]
 
@@ -137,10 +143,25 @@ export default function ProductGrid() {
                   <button className="animate-pulse-crimson flex-1 rounded-lg bg-crimson px-4 py-2.5 text-xs font-semibold text-alabaster transition-colors hover:bg-crimson-dark">
                     Add to Inquiry
                   </button>
-                  <button className="inline-flex items-center gap-1.5 rounded-lg border border-navy-mid px-3 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:border-alabaster/30 hover:text-alabaster">
-                    <FileDown className="h-3.5 w-3.5" />
-                    COA
-                  </button>
+                  {product.coa ? (
+                    <a
+                      href={product.coa}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-navy-mid px-3 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:border-alabaster/30 hover:text-alabaster"
+                    >
+                      <FileDown className="h-3.5 w-3.5" />
+                      COA
+                    </a>
+                  ) : (
+                    <button
+                      disabled
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-navy-mid/50 px-3 py-2.5 text-xs font-medium text-muted-foreground/50 cursor-not-allowed"
+                    >
+                      <FileDown className="h-3.5 w-3.5" />
+                      COA
+                    </button>
+                  )}
                 </div>
               </div>
 
