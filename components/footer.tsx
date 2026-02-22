@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <div className="flex items-center gap-3">
               <img
-                src="/images/logo.jpeg"
+                src="/images/eg"
                 alt="RGVPeptides logo"
                 className="h-12 w-12 rounded-full"
               />

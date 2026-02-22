@@ -65,7 +65,7 @@ export default function HeroSection() {
           {/* Logo */}
           <div className="animate-float relative">
             <img
-              src="/images/logo.jpeg"
+              src="/images/logo.png"
               alt="RGVPeptides - Texas peptide research company"
               className="h-56 w-56 rounded-full shadow-[0_0_60px_rgba(59,130,246,0.3)] lg:h-72 lg:w-72"
             />
